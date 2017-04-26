@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('express-sequelize');
 var http = require('http');
-var models = require('../models');
+var db = require('../models');
 
 /**
  * Get port from environment and store in Express.
@@ -23,7 +23,7 @@ app.set('port', port);
 var server = http.createServer(app);
 
 // syncing models to db
-models.sequelize.sync().then(function() {
+db.sequelize.sync().then(function() {
   /**
    * Listen on provided port, on all network interfaces.
    */
